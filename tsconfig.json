@@ -12,10 +12,21 @@
     "baseUrl": "./",
     "incremental": true,
     "skipLibCheck": true,
+    "strict": true,
     "strictNullChecks": false,
+    "resolveJsonModule": true,
     "noImplicitAny": false,
+    "strictPropertyInitialization": false,
     "strictBindCallApply": false,
     "forceConsistentCasingInFileNames": false,
-    "noFallthroughCasesInSwitch": false
+    "noFallthroughCasesInSwitch": false,
+    "esModuleInterop": true,
+    "paths": {
+      "@application/*": ["./src/application/*"],
+      "@src/types/*": ["src/application/types/*"],
+      "@infra/*": ["./src/infra/*"],
+      "@utils/*": ["./src/utils/*"],
+      "@test/*": ["./test/*"]
+    }
   }
 }
