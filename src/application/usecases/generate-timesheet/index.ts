@@ -26,7 +26,7 @@ export class GenerateTimesheet {
 
     const records = await this.recordsRepository.findAllByMonth(yearMonth);
 
-    if (!records) {
+    if (!records || records.length === 0) {
       throw new AppError('Relatório não encontrado.', ConstStatusCode.NotFound);
     }
 
