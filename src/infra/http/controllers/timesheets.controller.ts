@@ -1,6 +1,6 @@
 import { GenerateTimesheet } from '@application/usecases/generate-timesheet';
 import { Controller, Get, Param, UseInterceptors } from '@nestjs/common';
-import { SentryInterceptor } from 'src/sentry-interceptor';
+import { SentryInterceptor } from '../../../sentry-interceptor';
 import { ReportViewModule } from '../view-modules/report-view-module';
 
 @UseInterceptors(SentryInterceptor)

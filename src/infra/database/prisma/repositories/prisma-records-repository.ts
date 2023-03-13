@@ -1,10 +1,10 @@
 import { Injectable } from '@nestjs/common';
+import { extractDayAndTime } from '@utils/extract-day-and-time';
 import dayjs from 'dayjs';
 import utc from 'dayjs/plugin/utc';
 import { Moment } from 'src/application/entities/moment';
 import { Record } from 'src/application/entities/record';
 import { RecordsRepository } from 'src/application/repositories/records-repository';
-import { extractDayAndTime } from 'src/utils/extract-day-and-time';
 import { PrismaRecordMapper } from '../mappers/prisma-record-mapper';
 import { PrismaService } from '../prisma.service';
 dayjs.extend(utc);

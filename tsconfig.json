@@ -23,7 +23,6 @@
     "esModuleInterop": true,
     "paths": {
       "@application/*": ["./src/application/*"],
-      "@src/types/*": ["src/application/types/*"],
       "@infra/*": ["./src/infra/*"],
       "@utils/*": ["./src/utils/*"],
       "@test/*": ["./test/*"]

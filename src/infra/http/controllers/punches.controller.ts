@@ -1,6 +1,6 @@
+import { SaveRecord } from '@application/usecases/save-record';
 import { Body, Controller, Post, UseInterceptors } from '@nestjs/common';
-import { SaveRecord } from 'src/application/usecases/save-record';
-import { SentryInterceptor } from 'src/sentry-interceptor';
+import { SentryInterceptor } from '../../../sentry-interceptor';
 import { CreatePunchesBody } from '../dtos/createPunches-body';
 import { RecordViewModule } from '../view-modules/record-view-module';
 

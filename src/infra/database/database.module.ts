@@ -1,5 +1,5 @@
+import { RecordsRepository } from '@application/repositories/records-repository';
 import { Module } from '@nestjs/common';
-import { RecordsRepository } from 'src/application/repositories/records-repository';
 import { PrismaService } from './prisma/prisma.service';
 import { PrismaRecordsRepository } from './prisma/repositories/prisma-records-repository';
 

@@ -1,4 +1,4 @@
-import { Record } from 'src/application/entities/record';
+import { Record } from '@application/entities/record';
 import { Record as RawRecord } from '@prisma/client';
 import { extractDayAndTime } from '@utils/extract-day-and-time';
 
