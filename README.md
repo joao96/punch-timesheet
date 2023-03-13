@@ -10,6 +10,7 @@
 <p align="center">
   <a href="#checkered_flag-technologies">Technologies</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#information_source-setup-with-docker">Setup with Docker</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+    <a href="#information_source-setup-without-docker">Setup without Docker</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#test_tube-testing">Testing</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#page_facing_up-license">License</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#get-in-touch-monocle_face">Get in touch</a>
@@ -66,6 +67,19 @@ That's it!
 Now you should be able to access the Swagger page through http://localhost:3000/api and test it out.
 
 --------
+
+## :information_source: Setup without Docker
+
+It is also possible to run the application without using the container created previously. The only requirement is that the postgres container stays running. So make sure only the application container is interrupted.
+
+From your command line:
+
+**Step 1:** 
+
+```bash
+$ npm run start:dev
+```
+---------
 
 ## :test_tube: Testing
 
