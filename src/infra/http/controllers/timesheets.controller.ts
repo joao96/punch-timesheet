@@ -1,7 +1,9 @@
 import { GenerateTimesheet } from '@application/usecases/generate-timesheet';
-import { Controller, Get, Param } from '@nestjs/common';
+import { Controller, Get, Param, UseInterceptors } from '@nestjs/common';
+import { SentryInterceptor } from 'src/sentry-interceptor';
 import { ReportViewModule } from '../view-modules/report-view-module';
 
+@UseInterceptors(SentryInterceptor)
 @Controller('/v1/timesheets/')
 export class TimesheetsController {
   constructor(private generateTimesheet: GenerateTimesheet) {}
