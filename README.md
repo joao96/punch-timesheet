@@ -28,6 +28,7 @@
 - [Jest](https://jestjs.io/)
 - [Docker](https://www.docker.com/)
 - [Sentry](https://sentry.io/welcome/)
+- [Github Actions](https://github.com/features/actions)
 
 - [VS Code][vc] with [EditorConfig][vceditconfig] and [ESLint][vceslint]
 
