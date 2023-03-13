@@ -41,6 +41,11 @@ From your command line:
 
 Clone this repo & run a `cd` into the project's folder.
 
+**Step 2 (OPTIONAL):** 
+
+Furthermore, [Sentry](https://sentry.io/welcome/) was added to this project in order to monitor the errors launched during the execution of the application. 
+In your .env and .docker.env file, add your own DNS string to the variable SENTRY_DSN.
+
 **Step 2:** 
 
 Run the command that will create a Docker Image of the project and start the container:
