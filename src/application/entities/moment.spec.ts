@@ -9,7 +9,7 @@ describe('Moment', () => {
 
   it('should not be able to create a moment with invalid format', () => {
     expect(() => new Moment('11-03-2023T08:00:00')).toThrow(
-      'Data e hora em formato inválido.',
+      'Invalid format for day and time.',
     );
   });
 });
