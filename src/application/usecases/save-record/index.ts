@@ -33,7 +33,7 @@ export class SaveRecord {
 
     if (date.day() === SATURDAY || date.day() === SUNDAY) {
       throw new AppError(
-        'Sábado e domingo não são permitidos como dia de trabalho.',
+        'Weekend days are not allowed.',
         ConstStatusCode.Forbidden,
       );
     }
@@ -48,14 +48,14 @@ export class SaveRecord {
     const timeAlreadyInserted = checkDuplicateTime(dayTime, record);
 
     if (timeAlreadyInserted) {
-      throw new AppError('Horário já registrado.', ConstStatusCode.Forbidden);
+      throw new AppError('Time already registered.', ConstStatusCode.Forbidden);
     }
 
     const isAfterLastTime = checkProgressiveTime(dayTime, record);
 
     if (!isAfterLastTime) {
       throw new AppError(
-        'Horário deve ser posterior ao último ponto registrado.',
+        'Can not register a time previous to the last time registered.',
         ConstStatusCode.Forbidden,
       );
     }
@@ -65,7 +65,7 @@ export class SaveRecord {
       const isValidLunchBreak = validLunchBreak(day, schedule);
       if (!isValidLunchBreak) {
         throw new AppError(
-          'Deve haver no mínimo 1 hora de almoço.',
+          'There should be at least 1 hour of lunch break.',
           ConstStatusCode.Forbidden,
         );
       }
@@ -73,7 +73,7 @@ export class SaveRecord {
 
     if (record.schedule.length === PUNCHES_A_DAY) {
       throw new AppError(
-        'Apenas 4 horários podem ser registrados por dia.',
+        'Limit of 4 punches a day.',
         ConstStatusCode.Forbidden,
       );
     }

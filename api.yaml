@@ -1,0 +1,151 @@
+openapi: "3.0.3"
+info:
+  title: Punch Timesheet API
+  version: "1.0"
+components:
+  schemas:
+    Message:
+      type: object
+      properties:
+        statusCode:
+          type: number
+        message:
+          type: string
+    Moment:
+      type: object
+      description: Punch moment
+      properties:
+        date:
+          description: Date and hour of the punch
+          type: string
+          example: "2018-08-22T08:00:00"
+    Record:
+      type: object
+      properties:
+        day:
+          type: string
+          format: date
+        schedule:
+          type: array
+          example: ["08:00:00", "12:00:00", "13:00:00", "18:00:00"]
+          items:
+            type: string
+    Report:
+      type: object
+      description: Monthly report
+      properties:
+        month:
+          type: string
+          example: 2018-08
+        hoursWorked:
+          type: string
+          example: PT69H35M5S
+        overtime:
+          type: string
+          example: PT25M5S
+        dueHours:
+          type: string
+          example: PT0S
+        records:
+          type: array
+          items:
+            $ref: '#/components/schemas/Record'
+paths:
+  /v1/punches:
+    post:
+      summary: "Save Punch"
+      description: "Register a punch"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Moment"
+      responses:
+        "201":
+          description: |
+            Created
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Record"
+        "400":
+          description: |
+            Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Message"
+              examples:
+                Invalid format for day and time:
+                  value:
+                    statusCode: 400
+                    message: Invalid format for day and time
+                Required field not provided:
+                  value:
+                    statusCode: 400
+                    message: Required field not provided
+        "403":
+          description: |
+            Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Message"
+              examples:
+                only 4 punches per day:
+                  value:
+                    statusCode: 403
+                    message: Limit of 4 punches a day
+                1 hour lunch break:
+                  value:
+                    statusCode: 403
+                    message: There should be at least 1 hour of lunch break
+                weekend days are not allowed:
+                  value:
+                    statusCode: 403
+                    message: Weekend days are not allowed
+                time out of order:
+                  value:
+                    statusCode: 403
+                    message: Can not register a time previous to the last time registered
+        "409":
+          description: |
+            Conflict
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Message"
+              examples:
+                Time already registered:
+                  value:
+                    statusCode: 409
+                    message: Time already registered
+  /v1/timesheets/{month}:
+    get:
+      summary: "Monthly Report"
+      description: "Generate a monthly report"
+      parameters:
+        - name: month
+          in: path
+          required: true
+          schema:
+            type: string
+            example: "2023-03"
+      responses:
+        "200":
+          description: Monthly report
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Report"
+        "404":
+          description: Report not found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Message"
+              examples:
+                Report not found:
+                  value:
+                    statusCode: 404
+                    message: Report not found

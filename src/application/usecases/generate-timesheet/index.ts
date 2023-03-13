@@ -27,7 +27,7 @@ export class GenerateTimesheet {
     const records = await this.recordsRepository.findAllByMonth(yearMonth);
 
     if (!records || records.length === 0) {
-      throw new AppError('Relatório não encontrado.', ConstStatusCode.NotFound);
+      throw new AppError('Report not found.', ConstStatusCode.NotFound);
     }
 
     const { hours, minutes, seconds } = calculateWorkedHours(records);

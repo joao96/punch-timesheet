@@ -18,7 +18,7 @@ export class Moment {
     const hasValidFormat = this.validateFormat(date);
 
     if (!hasValidFormat) {
-      throw new AppError('Data e hora em formato inválido.');
+      throw new AppError('Invalid format for day and time.');
     }
 
     this.date = date;

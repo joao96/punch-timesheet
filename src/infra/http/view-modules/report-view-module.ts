@@ -3,11 +3,11 @@ import { Report } from '@application/entities/report';
 export class ReportViewModule {
   static toHTTP(report: Report) {
     return {
-      mes: report.yearMonth,
-      horasTrabalhadas: report.hoursWorked,
-      horasExcedentes: report.overtime,
-      horasDevidas: report.dueHours,
-      registros: report.records,
+      month: report.yearMonth,
+      hoursWorked: report.hoursWorked,
+      overtime: report.overtime,
+      dueHours: report.dueHours,
+      records: report.records,
     };
   }
 }

@@ -9,10 +9,10 @@ export class PunchesController {
 
   @Post()
   async create(@Body() body: CreatePunchesBody) {
-    const { dateHour } = body;
+    const { date } = body;
 
     const { record } = await this.saveRecord.execute({
-      dayTime: dateHour,
+      dayTime: date,
     });
 
     return RecordViewModule.toHTTP(record);
