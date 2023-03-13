@@ -2,9 +2,8 @@
   This repo provides an implementation of a Punch Timesheet managament API.
 </h4>
 <p align="center">
-  <img alt="GitHub top language" src="https://img.shields.io/github/languages/top/joao96/desafio-ilia?style=flat-square">
-  <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/joao96/desafio-ilia?style=flat-square">
-  <img alt="License" src="https://img.shields.io/github/license/joao96/desafio-ilia?style=flat-square">
+  <img alt="GitHub top language" src="https://img.shields.io/github/languages/top/joao96/punch-timesheet?style=flat-square">
+  <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/joao96/punch-timesheet?style=flat-square">
 </p>
 
 <p align="center">
